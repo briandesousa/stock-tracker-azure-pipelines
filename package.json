@@ -19,9 +19,10 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "run-p start-api start-ui",
+    "start": "concurrently -k \"npm run start-ui\" \"npm run start-api\"",
     "start-ui": "react-scripts start",
-    "start-api": "nodemon server/index.js --watch server",
+    "start-api": "node server/index.js",
+    "start-api-dev": "nodemon server/index.js --watch server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "citest": "CI=true react-scripts test",
@@ -44,6 +45,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.4",
-    "npm-run-all": "^4.1.5"
+    "concurrently": "^5.0.0"
   }
 }
