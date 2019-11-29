@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static('build'));
 
 // server the React UI
 app.get('/', function (req, res) {
